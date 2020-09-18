@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default ({ items }) => {
-  const [ activeIndex, setActiveIndex ] = useState(null);
+  const [ activeIndex, setActiveIndex] = useState(null);
 
   const onTitleClick = (i) => {
     setActiveIndex(i);
