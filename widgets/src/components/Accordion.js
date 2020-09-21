@@ -8,12 +8,14 @@ export default ({ items }) => {
   }
 
   const renderedItems = items.map((item, i) => {
+      const activeClass = i === activeIndex ? 'active' : '';
+
       return <React.Fragment id={item.title}>
-        <div className="title active" onClick={()=>{onTitleClick(i)}}>
+        <div className={`title ${activeClass}`} onClick={()=>{onTitleClick(i)}}>
           <i className="dropdown icon"></i>
           {item.title}
         </div>
-        <div className="content active">
+        <div className={`content ${activeClass}`}>
           <p>{item.content}</p>
         </div>
       </React.Fragment>;
