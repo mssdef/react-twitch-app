@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 const Search = () => {
   const [term, setTerm] = useState('');
 
+  useEffect(() => {
+
+  }, [term]);
+
   return <div>
     <div className="ui form">
       <div className="field">
