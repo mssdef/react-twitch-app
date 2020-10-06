@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 
 const Search = () => {
   const [term, setTerm] = useState('');
   const [results, setResults] = useState([]);
 
   const renderedResults = results.map((res, i) => {
-      return <div className="item" key={i}>
+      return <div className="item" key={res.pageid}>
+        <div className="right floated content">
+          <a className="ui button"
+            href={`https://en.wikipedia.org?curid=${res.pageid}`}>
+            Go</a>
+        </div>
         <div className="content">
           <div className="header">
             {res.title}
           </div>
-          {res.snippet}
+          {ReactHtmlParser(res.snippet)}
         </div>
       </div>
   });
-
+ 
   useEffect(() => {
       const search = async () => {
         const { data } =  await axios.get('https://en.wikipedia.org/w/api.php', {
