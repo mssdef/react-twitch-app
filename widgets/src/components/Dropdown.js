@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Dropdown =  ({ options, selected, onSelectedChange }) => {
+  const [open, setOpen] = useState(false);
   const [ activeIndex, setActiveIndex] = useState(null);
 
   const onTitleClick = (i) => {
@@ -8,7 +9,7 @@ const Dropdown =  ({ options, selected, onSelectedChange }) => {
   }
 
   const renderedOptions = options ? options.map((item, i) => {
-      // const activeClass = i === activeIndex ? 'active' : '';
+      if (item.value === selected.value) return null;
 
       return <div key={item.value} className="item"
         onClick={()=>onSelectedChange(item)}>
@@ -19,10 +20,11 @@ const Dropdown =  ({ options, selected, onSelectedChange }) => {
   return <div className="ui form">
     <div className="field">
       <label className="label">Select a Color</label>
-      <div className="ui selection dropdown visible active">
+      <div onClick={()=>{return setOpen(!open)}}
+        className={open ? "ui selection dropdown visible active" : "ui selection dropdown"}>
         <i className="dropdown icon"/>
         <div className="text">{selected.label}</div>
-        <div className="menu visible transition">{renderedOptions}</div>
+        <div className={open ? "menu visible transition" : "menu"}>{renderedOptions}</div>
       </div>
     </div>
     <h1>{activeIndex} Dropdown</h1>
