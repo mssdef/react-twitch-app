@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Dropdown =  ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
   const [ activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(()=>{
+    document.body.addEventListener('click', () => {
+      setOpen(false);
+    });
+  }, []);
 
   const onTitleClick = (i) => {
     setActiveIndex(i);
