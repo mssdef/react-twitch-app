@@ -13,7 +13,7 @@ const Dropdown =  ({ options, selected, onSelectedChange }) => {
 
       setOpen(false);
     });
-  }, []);
+  }, []); 
 
   const onTitleClick = (i) => {
     setActiveIndex(i);
