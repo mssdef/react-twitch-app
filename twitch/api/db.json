@@ -1,3 +1,19 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "e309",
+      "description": "ee",
+      "id": 1
+    },
+    {
+      "title": "e309",
+      "description": "Stream at 3:15",
+      "id": 2
+    },
+    {
+      "title": "w423",
+      "description": "423 payload",
+      "id": 3
+    }
+  ]
 }
